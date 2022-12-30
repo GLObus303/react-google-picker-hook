@@ -1,0 +1,65 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "rules": {
+    "strict": [2, "never"], // Avoid any unsafe functions that would not be allowed under strict mode
+    "default-case": 0, // Allow switch without a default case
+    "no-console": 2, // Forbid console logs
+    "arrow-body-style": [2, "as-needed"], // Remove all explicit returns that are not necessary
+    "no-unneeded-ternary": [2, { "defaultAssignment": false }], // Default ternary x ? x : 1 results to x || 1
+    "curly": 2, // Avoid single line ifs, force curly brace on the same line
+    "newline-before-return": 2, // Add newline before every return
+    "eqeqeq": [2, "always", { "null": "ignore" }], // force strict equality, except for null/undefined check
+    "import/no-default-export": 0,
+    "react-hooks/exhaustive-deps": 0,
+
+    "import/order": [
+      1,
+      {
+        "groups": ["builtin", "external"],
+        "newlines-between": "always"
+      }
+    ], // Sort imports in groups, built-in first and external after, delimit with a newline
+    "import/extensions": [
+      0,
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ], // Force extensions on imports apart from the JS/TS related ones
+    "object-shorthand": 2, // Shorten objects - { someProp: someProp } result to {  someProp }
+    "prefer-const": 2, // Force const declarations for variables that are not mutated
+    "no-var": 2, // Forbid var declaration
+    "spaced-comment": 2, // Force one whitespace after "//" comment
+    "no-useless-return": 2, // Forbid all explicit returns that serve not purpose
+    "no-irregular-whitespace": 2, // Silent guard from weird whitespace clashes in code
+    "dot-notation": 2, // Force dot notation wheter possible - Object['string'] results to object.string
+    "no-nested-ternary": 2, // Forbid nesting of optional chaining which hinders readability
+
+    "jsx-a11y/anchor-is-valid": 0, // Force anchor tag to have valid href attribute
+
+    "react/display-name": 0, // Force displayName to be used for components
+    "react/jsx-boolean-value": 2, // <Component someFlag={true} /> results to <Componet someFlag />
+    "react/self-closing-comp": 2, // Empty JSX tags will collapse. <div></div> results to <div/>
+    "react/jsx-curly-brace-presence": 2, // Avoid having useless curly braces for string props
+    "no-template-curly-in-string": 0,
+
+    "no-use-before-define": 0, // handled by TS
+    "no-shadow": 0, // handled by TS
+    "no-unused-vars": 0, // handled by TS
+
+    "@typescript-eslint/explicit-module-boundary-types": 0, // Allow functions without explicit return type
+    "@typescript-eslint/no-explicit-any": 0, // Allows any type, does make sense in some places
+    "@typescript-eslint/no-unused-vars": [2, { "ignoreRestSiblings": true }],
+    "@typescript-eslint/no-use-before-define": 2, // Variable must be declared before its use
+    "@typescript-eslint/no-shadow": 2, // Forbid declaring variables that have duplicate names in the same scope
+    "@typescript-eslint/no-var-requires": 0, // allow require
+    "@typescript-eslint/no-empty-function": 0, // allow empty function
+
+    "@next/next/no-img-element": 0 // Allow img elements in Next.js
+  }
+}

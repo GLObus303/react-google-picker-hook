@@ -1,0 +1,64 @@
+{
+  "name": "react-google-picker-hook",
+  "version": "0.0.0",
+  "description": "Hook for Google Picker API for React",
+  "keywords": [],
+  "main": "dist/useGooglePicker.js",
+  "module": "dist/useGooglePicker.mjs",
+  "typings": "dist/useGooglePicker.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "GLObus303",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "prebuild": "rimraf dist",
+    "build": "rollup -c",
+    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "semantic-release": "semantic-release",
+    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  },
+  "dependencies": {
+    "use-script": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "@types/google.picker": "^0.0.39",
+    "@types/jest": "^29.2.4",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "esbuild": "^0.16.12",
+    "husky": "^8.0.2",
+    "prettier": "^2.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.9.0",
+    "rollup-plugin-dts": "^5.1.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "semantic-release": "^19.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
