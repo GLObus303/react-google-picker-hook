@@ -1,4 +1,4 @@
-import { TokenClientConfig, TokenResponse } from '../GoogleDrive';
+import { TokenClientConfig } from '../GoogleDrive';
 
 declare global {
   interface Window {

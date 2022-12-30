@@ -1,3 +1,4 @@
+import typescript from 'rollup-plugin-typescript2';
 import dts from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
 
@@ -5,13 +6,18 @@ const name = require('./package.json').main.replace(/\.js$/, '');
 
 const bundle = (config) => ({
   ...config,
-  input: 'src/index.ts',
+  input: 'src/useGooglePicker.ts',
   external: (id) => !/^[./]/.test(id),
 });
 
 export default [
   bundle({
-    plugins: [esbuild()],
+    plugins: [
+      typescript({
+        typescript: require('typescript'),
+      }),
+      esbuild(),
+    ],
     output: [
       {
         file: `${name}.js`,
