@@ -1,6 +1,6 @@
 {
   "name": "react-google-picker-hook",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Hook for Google Picker API for React",
   "keywords": [
     "google picker",
@@ -31,9 +31,9 @@
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "version-patch": "version --patch --no-git-tag-version",
-    "version-minor": "version --minor --no-git-tag-version",
-    "version-major": "version --major --no-git-tag-version",
+    "version-patch": "yarn version --patch --no-git-tag-version",
+    "version-minor": "yarn version --minor --no-git-tag-version",
+    "version-major": "yarn version --major --no-git-tag-version",
     "publish-yarn": "yarn build && npm publish --access=public"
   },
   "lint-staged": {

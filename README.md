@@ -20,8 +20,14 @@
 # yarn
 yarn add react-google-picker-hook
 
+# optional
+yarn add --dev @types/google.picker
+
 # npm
 npm install react-google-picker-hook --save
+
+# optional
+npm install @types/google.picker --save-dev
 ```
 
 2. Use the package
