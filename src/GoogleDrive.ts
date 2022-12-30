@@ -1,5 +1,5 @@
 /**
- * https://developers.google.com/picker/docs/reference#action
+ * For complete reference see: https://developers.google.com/picker/docs/reference#action
  */
 export enum GOOGLE_ACTION {
   CANCEL = 'cancel',
@@ -7,7 +7,7 @@ export enum GOOGLE_ACTION {
 }
 
 /**
- * https://developers.google.com/picker/docs/reference#service-id
+ * For complete reference see: https://developers.google.com/picker/docs/reference#service-id
  */
 export enum ServiceId {
   DOCS = 'docs',
@@ -19,7 +19,7 @@ export enum ServiceId {
 }
 
 /**
- * https://developers.google.com/drive/picker/reference#thumbnail
+ * For complete reference see: https://developers.google.com/drive/picker/reference#thumbnail
  */
 export interface DocumentThumbnailObject {
   url: string;
@@ -35,7 +35,9 @@ export enum Type {
   VIDEO = 'video',
 }
 
-/** for complete type see: https://developers.google.com/picker/docs/results */
+/**
+ * For complete reference see: https://developers.google.com/picker/docs/results
+ */
 export type GoogleDriveFile = {
   addressLines?: string[];
   description: string;
@@ -89,20 +91,19 @@ export type GoogleDrivePickerData = {
   ];
 };
 
-export type PickerConfiguration = {
-  clientId: string;
-  developerKey: string;
+export type CustomPickerConfiguration = {
   viewId?: ViewIdOptions;
-  viewMimeTypes: string[];
-  token?: string;
-  appId?: string;
-  locale?: string;
+  viewMimeTypes?: string[];
   customScopes?: string[];
 };
 
 export type AppendCustomPickerConfig = (
   picker: google.picker.PickerBuilder,
 ) => google.picker.PickerBuilder;
+
+export type AppendCustomViewConfig = (
+  view: google.picker.DocsView,
+) => google.picker.DocsView;
 
 export type TokenResponse = {
   access_token?: string;
@@ -118,6 +119,18 @@ export type TokenResponse = {
   details?: string;
 };
 
+export type ErrorType = 'popup_failed_to_open' | 'popup_closed' | 'unknown';
+
+export type ErrorCallback = {
+  message: string;
+  stack: string;
+  type: ErrorType;
+};
+
+/**
+ * For complete reference see: https://developers.google.com/identity/oauth2/web/reference/js-reference#TokenClientConfig/
+ */
+
 export type TokenClientConfig = {
   client_id: string;
   scope: string;
@@ -129,5 +142,5 @@ export type TokenClientConfig = {
   ux_mode?: 'popup' | 'redirect';
   select_account?: boolean;
   callback: (response: TokenResponse) => void;
-  error_callback?: (value: unknown) => void;
+  error_callback?: (error: ErrorCallback) => void;
 };

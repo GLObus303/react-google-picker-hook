@@ -1,8 +1,13 @@
 {
   "name": "react-google-picker-hook",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Hook for Google Picker API for React",
-  "keywords": [],
+  "keywords": [
+    "google picker",
+    "react google picker",
+    "react google drive",
+    "google identity service for web"
+  ],
   "main": "dist/useGooglePicker.js",
   "module": "dist/useGooglePicker.mjs",
   "typings": "dist/useGooglePicker.d.ts",
@@ -26,9 +31,9 @@
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "version": "npm version patch --git-tag-version false",
-    "version-minor": "npm version minor --git-tag-version false",
-    "version-major": "npm version major --git-tag-version false"
+    "version-patch": "version --patch --no-git-tag-version",
+    "version-minor": "version --minor --no-git-tag-version",
+    "version-major": "version --major --no-git-tag-version"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [

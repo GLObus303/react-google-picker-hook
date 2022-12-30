@@ -1,20 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useScript } from 'use-script';
-import { AppendCustomPickerConfig, TokenClientConfig } from './GoogleDrive';
+import {
+  AppendCustomPickerConfig,
+  AppendCustomViewConfig,
+  TokenClientConfig,
+} from './GoogleDrive';
 import {
   GoogleDrivePickerData,
-  PickerConfiguration,
+  CustomPickerConfiguration,
   TokenResponse,
 } from './GoogleDrive';
 
 type Options = {
   googleAppId: string;
   googleAppKey: string;
-  locale?: string;
   googleAuthClientId: string;
-  customPickerConfig?: Partial<PickerConfiguration>;
+  customPickerConfig?: CustomPickerConfiguration;
   onAuthFailed?: (response: TokenResponse) => void;
   appendCustomPickerConfig?: AppendCustomPickerConfig;
+  appendCustomViewConfig?: AppendCustomViewConfig;
   tokenClientConfig?: Partial<TokenClientConfig>;
 };
 
@@ -45,29 +49,32 @@ export const useGooglePicker = (
       return;
     }
 
-    const { viewId, viewMimeTypes } = config;
+    const view = new google.picker.DocsView(
+      google.picker.ViewId[config.viewId],
+    );
 
-    const view = new google.picker.DocsView(google.picker.ViewId[viewId]);
-
-    if (viewMimeTypes) {
-      view.setMimeTypes(viewMimeTypes.join(','));
+    if (config.viewMimeTypes) {
+      view.setMimeTypes(config.viewMimeTypes.join(','));
     }
+
+    const customView = options.appendCustomViewConfig
+      ? options.appendCustomViewConfig(view)
+      : view;
 
     const picker = new google.picker.PickerBuilder()
       .setAppId(options.googleAppId)
       .setOAuthToken(innerToken)
       .setDeveloperKey(options.googleAppKey)
-      .setLocale(options.locale || 'en')
-      .addView(view)
+      .addView(customView)
       .setCallback((result) =>
         callbackFunction((result as any) as GoogleDrivePickerData, innerToken),
       );
 
-    const updatePicker = options.appendCustomPickerConfig
+    const customPicker = options.appendCustomPickerConfig
       ? options.appendCustomPickerConfig(picker)
       : picker;
 
-    updatePicker.build().setVisible(true);
+    customPicker.build().setVisible(true);
   };
 
   const loadPickerApi = () =>
