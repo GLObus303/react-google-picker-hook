@@ -1,6 +1,6 @@
 {
   "name": "react-google-picker-hook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hook for Google Picker API for React",
   "keywords": [],
   "main": "dist/useGooglePicker.js",
@@ -25,7 +25,10 @@
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "version": "npm version patch --git-tag-version false",
+    "version-minor": "npm version minor --git-tag-version false",
+    "version-major": "npm version major --git-tag-version false"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -61,7 +64,6 @@
     "rollup-plugin-dts": "^5.1.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-typescript2": "^0.34.1",
-    "semantic-release": "^19.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   }
