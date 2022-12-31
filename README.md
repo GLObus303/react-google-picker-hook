@@ -5,7 +5,7 @@
 <img alt="npm latest version" src="https://img.shields.io/npm/v/react-google-picker-hook">
 </a>
 
-<b>Hook for Google Drive API for React compatible with the newest Google auth API</b>
+<b>Google Drive API hook for React compatible with the newest Google auth API</b>
 
 # Installation
 
