@@ -5,7 +5,7 @@
 <img alt="npm latest version" src="https://img.shields.io/npm/v/react-google-picker-hook">
 </a>
 
-<b>Hook for Google Picker API for React compatible with the newest Google auth API</b>
+<b>Hook for Google Drive API for React compatible with the newest Google auth API</b>
 
 # Installation
 
@@ -19,13 +19,15 @@
 # yarn
 yarn add react-google-picker-hook
 
-# optional
+## optional
 yarn add --dev @types/google.picker
+```
 
+```bash
 # npm
 npm install react-google-picker-hook --save
 
-# optional
+## optional
 npm install @types/google.picker --save-dev
 ```
 
