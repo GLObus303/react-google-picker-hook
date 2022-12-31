@@ -4,7 +4,6 @@
 <a href="https://www.npmjs.com/package/react-google-picker-hook">
 <img alt="npm latest version" src="https://img.shields.io/npm/v/react-google-picker-hook">
 </a>
-[![gzip size](https://badgen.net/bundlephobia/minzip/react-google-picker-hook)](https://bundlephobia.com/result?p=react-google-picker-hook)
 
 <b>Hook for Google Picker API for React compatible with the newest Google auth API</b>
 
