@@ -4,6 +4,7 @@
 export enum GOOGLE_ACTION {
   CANCEL = 'cancel',
   PICKED = 'picked',
+  LOADED = 'loaded',
 }
 
 /**
@@ -87,7 +88,7 @@ export type GoogleDrivePickerData = {
   viewToken: [
     ViewIdOptions,
     undefined,
-    { query?: string | undefined; parent?: string | undefined },
+    { query: string | undefined; parent: string | undefined },
   ];
 };
 
