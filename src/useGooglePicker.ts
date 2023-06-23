@@ -4,8 +4,6 @@ import {
   AppendCustomPickerConfig,
   AppendCustomViewConfig,
   TokenClientConfig,
-} from './GoogleDrive';
-import {
   GoogleDrivePickerData,
   CustomPickerConfiguration,
   TokenResponse,
@@ -67,7 +65,7 @@ export const useGooglePicker = (
       .setDeveloperKey(options.googleAppKey)
       .addView(customView)
       .setCallback((result) =>
-        callbackFunction((result as any) as GoogleDrivePickerData, innerToken),
+        callbackFunction(result as any as GoogleDrivePickerData, innerToken),
       );
 
     const customPicker = options.appendCustomPickerConfig
@@ -104,7 +102,7 @@ export const useGooglePicker = (
       .initTokenClient({
         client_id: options.googleAuthClientId,
         scope: config.scope.join(' '),
-        callback: async (response: TokenResponse) => {
+        callback: (response: TokenResponse) => {
           createPicker(response.access_token);
           if (response.access_token) {
             setToken(response.access_token);
